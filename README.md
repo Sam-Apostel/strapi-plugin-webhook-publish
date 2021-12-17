@@ -46,9 +46,9 @@ module.exports = ({ env }) => ({
 
 When the plugin has been installed correctly just click on `Publishing` in the sidebar under plugins then click "Publish".
 
-[npm-image]: https://img.shields.io/npm/v/strapi-plugin-wehbook-publish.svg?style=flat-square&logo=react
-[npm-url]: https://npmjs.org/package/strapi-plugin-wehbook-publish
-[npm-downloads-image]: https://img.shields.io/npm/dm/strapi-plugin-wehbook-publish.svg
-[npm-downloads-url]: https://npmcharts.com/compare/strapi-plugin-wehbook-publish?minimal=true
-[ci-image]: https://github.com/Sam-Apostel/strapi-plugin-wehbook-publish/workflows/Test/badge.svg
-[ci-url]: https://github.com/Sam-Apostel/strapi-plugin-wehbook-publish/actions
+[npm-image]: https://img.shields.io/npm/v/strapi-plugin-webhook-publish.svg?style=flat-square&logo=react
+[npm-url]: https://npmjs.org/package/strapi-plugin-webhook-publish
+[npm-downloads-image]: https://img.shields.io/npm/dm/strapi-plugin-webhook-publish.svg
+[npm-downloads-url]: https://npmcharts.com/compare/strapi-plugin-webhook-publish?minimal=true
+[ci-image]: https://github.com/Sam-Apostel/strapi-plugin-webhook-publish/workflows/Test/badge.svg
+[ci-url]: https://github.com/Sam-Apostel/strapi-plugin-webhook-publish/actions
