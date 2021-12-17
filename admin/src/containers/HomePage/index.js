@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useRef } from "react";
+import React, { memo, useState } from "react";
 
 import { Button, Padded, Text } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
@@ -9,40 +9,22 @@ import { useGlobalContext, request } from "strapi-helper-plugin";
 
 import pluginId from "../../pluginId";
 
-const POLL_INTERVAL = 10000;
-
 const HomePage = () => {
   const { formatMessage } = useGlobalContext();
-  const [ready, setReady] = useState(false);
   const [busy, setBusy] = useState(false);
-
-  useEffect(() => {
-    let timeout;
-    const checkBusy = async () => {
-      const { busy } = await request(`/${pluginId}/check`, { method: "GET" });
-
-      setBusy(busy);
-      setReady(true);
-
-      timeout = setTimeout(checkBusy, POLL_INTERVAL);
-    };
-
-    checkBusy();
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
 
   const triggerPublish = async () => {
     setBusy(true);
-
-    await request(`/${pluginId}/publish`, { method: "GET" });
+    setTimeout(() => setBusy(false), 50000);
+    const { success } = await request(`/${pluginId}/publish`, {
+      method: "GET",
+    });
+    if (success) setBusy(false);
   };
 
   const handleClick = () => {
     const ok = confirm(
-      formatMessage({ id: "github-publish.home.prompt.confirm" })
+      formatMessage({ id: `${pluginId}.home.prompt.confirm` })
     );
     if (ok) triggerPublish();
   };
@@ -50,33 +32,26 @@ const HomePage = () => {
   return (
     <Padded size="md" top left bottom right>
       <Header
-        title={{ label: formatMessage({ id: "github-publish.home.title" }) }}
-        content={formatMessage({ id: "github-publish.home.description" })}
+        title={{ label: formatMessage({ id: `${pluginId}.home.title` }) }}
+        content={formatMessage({ id: `${pluginId}.home.description` })}
       />
-      {ready ? (
-        busy ? (
-          <>
-            <LoadingBar />
-            <Text>{formatMessage({ id: "github-publish.home.busy" })}</Text>
-          </>
-        ) : (
-          <>
-            <Padded size="md" bottom>
-              <Text>{formatMessage({ id: "github-publish.home.prompt" })}</Text>
-            </Padded>
-            <Button
-              color="primary"
-              icon={<FontAwesomeIcon icon={faUpload} />}
-              onClick={handleClick}
-            >
-              {formatMessage({ id: "github-publish.home.button.publish" })}
-            </Button>
-          </>
-        )
-      ) : (
+      {busy ? (
         <>
           <LoadingBar />
-          <Text>{formatMessage({ id: "github-publish.home.notready" })}</Text>
+          <Text>{formatMessage({ id: `${pluginId}.home.busy` })}</Text>
+        </>
+      ) : (
+        <>
+          <Padded size="md" bottom>
+            <Text>{formatMessage({ id: `${pluginId}.home.prompt` })}</Text>
+          </Padded>
+          <Button
+            color="primary"
+            icon={<FontAwesomeIcon icon={faUpload} />}
+            onClick={handleClick}
+          >
+            {formatMessage({ id: `${pluginId}.home.button.publish` })}
+          </Button>
         </>
       )}
     </Padded>

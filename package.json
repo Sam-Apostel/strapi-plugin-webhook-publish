@@ -1,11 +1,11 @@
 {
-  "name": "strapi-plugin-github-publish",
+  "name": "strapi-plugin-webhook-publish",
   "version": "0.1.0",
-  "description": "A plugin to easily trigger GitHub Actions workflows from Strapi.",
+  "description": "A plugin to easily trigger webhooks from Strapi.",
   "strapi": {
-    "name": "GitHub Publishing",
+    "name": "Publishing",
     "icon": "plug",
-    "description": "Publish changes via GitHub Actions."
+    "description": "Publish changes via Webhook."
   },
   "dependencies": {},
   "scripts": {
@@ -18,15 +18,15 @@
     "depcheck": "npx npm-check --update"
   },
   "author": {
-    "name": "Phantom Studios Ltd.",
-    "email": "boo@phntms.com",
-    "url": "https://www.phntms.com"
+    "name": "Sam Apostel",
+    "email": "sam@apostel.be",
+    "url": "https://github.com/Sam-Apostel"
   },
   "maintainers": [
     {
-      "name": "Phantom Studios Ltd.",
-      "email": "boo@phntms.com",
-      "url": "https://www.phntms.com"
+      "name": "Sam Apostel",
+      "email": "sam@apostel.be",
+      "url": "https://github.com/Sam-Apostel"
     }
   ],
   "engines": {

@@ -1,1 +1,9 @@
-{}
+{
+	"home.title": "Publiceren",
+	"home.description": "Wijzigingen publiceren",
+	"home.notready": "Status aan het controlleren...",
+	"home.prompt": "Op de onderstaande knop klikken zal de website zichzelf heropbouwen met de nieuwe content, ben je zeker?",
+	"home.prompt.confirm": "Ben je zeker dat je wilt publiceren?",
+	"home.busy": "De website is aan het heropbouwen, even wachten.",
+	"home.button.publish": "Publiceer"
+}

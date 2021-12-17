@@ -2,16 +2,8 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/check",
-      "handler": "github-publish.check",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
       "path": "/publish",
-      "handler": "github-publish.publish",
+      "handler": "webhook-publish.publish",
       "config": {
         "policies": []
       }
